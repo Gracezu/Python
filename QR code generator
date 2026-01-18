@@ -1,0 +1,16 @@
+#Need to install external modules like install pip qrcode
+import qrcode
+from pathlib import Path
+
+data = "https://www.google.com/"
+
+# create folder in your project
+out_dir = Path("images")
+out_dir.mkdir(exist_ok=True)
+
+# generate and save
+img = qrcode.make(data)
+img_path = out_dir / "qrcode.png"
+img.save(img_path)
+
+print(f"Saved: {img_path.resolve()}")
